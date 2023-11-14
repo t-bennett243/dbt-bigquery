@@ -51,7 +51,7 @@ from pyspark.sql import SparkSession
 {%- set raw_cluster_by = config.get('cluster_by', none) -%}
 {%- set partition_config = adapter.parse_partition_by(raw_partition_by) %}
 
-spark = SparkSession.builder.appName('smallTest').getOrCreate()
+spark = SparkSession.builder.appName("{{this.name}}").getOrCreate()
 
 spark.conf.set("viewsEnabled","true")
 spark.conf.set("temporaryGcsBucket","{{target.gcs_bucket}}")
